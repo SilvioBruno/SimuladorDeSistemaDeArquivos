@@ -1,0 +1,3 @@
+[Criar Pasta] pasta1
+[Criar Pasta] subpasta
+[Deletar Pasta] pasta1

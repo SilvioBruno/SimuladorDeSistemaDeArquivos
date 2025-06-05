@@ -1,13 +1,26 @@
-package Sistema;
-
+// Representa um arquivo no sistema de arquivos simulado
 public class File {
-    String name;
-    String ext;
-    String content;
+    private String name; // Nome do arquivo
+    private String content; // Conteúdo do arquivo
 
-    public File(String name, String ext, String content){
+    // Construtor: inicializa o arquivo com nome e conteúdo
+    public File(String name, String content) {
         this.name = name;
-        this.ext = ext;
+        this.content = content;
+    }
+
+    // Retorna o nome do arquivo
+    public String getName() {
+        return name;
+    }
+
+    // Retorna o conteúdo do arquivo
+    public String getContent() {
+        return content;
+    }
+
+    // Define novo conteúdo para o arquivo
+    public void setContent(String content) {
         this.content = content;
     }
 }

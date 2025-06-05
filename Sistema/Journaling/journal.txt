@@ -1,3 +1,14 @@
-[Criar Pasta] pasta1
-[Criar Pasta] subpasta
-[Deletar Pasta] pasta1
+[2025-06-05 15:13:31] Criar Pasta -> /
+[2025-06-05T15:18:55.655] Criar Pasta -> pasta1
+[2025-06-05T15:20:04.005] Criar Arquivo -> pedro.
+[2025-06-05T15:21:22.447] Deletar Arquivo -> pedro
+[2025-06-05T15:22:21.501] Deletar Pasta -> pasta1
+[2025-06-05T15:22:36.594] Criar Pasta -> pasta1
+[2025-06-05T15:23:09.758] Criar Arquivo -> silvio.
+[2025-06-05T15:23:47.714] Renomear Arquivo -> silvio -> pedro
+[2025-06-05T15:24:32.725] Renomear Pasta -> pasta1 -> pasta2
+[2025-06-05T15:25:21.896] Criar Pasta -> pasta1
+[2025-06-05T15:31:19.943] Criar Pasta -> pasta1
+[2025-06-05T15:31:29.538] Criar Pasta -> pasta
+[2025-06-05T15:31:51.456] Criar Arquivo -> pedro
+[2025-06-05T15:32:42.924] Criar Arquivo -> pedrocopia

@@ -1,0 +1,2 @@
+[2025-06-05 19:43:23] [Criar Pasta ->] pasta1
+[2025-06-05 19:43:46] [Criar Arquivo ->] silvio

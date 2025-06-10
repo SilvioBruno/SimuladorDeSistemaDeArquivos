@@ -1,108 +1,69 @@
 package Sistema;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Directory {
+public class Directory implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     private String name;
-    private List<Directory> subPastas = new ArrayList<>();
-    private List<File> arquivos = new ArrayList<>();
+    private List<File> files;
+    private List<Directory> subDirectories;
 
     public Directory(String name) {
         this.name = name;
+        this.files = new ArrayList<>();
+        this.subDirectories = new ArrayList<>();
     }
 
     public String getName() {
         return name;
     }
 
-    public List<Directory> getSubPastas() {
-        return subPastas;
+    public void setName(String newName) {
+        this.name = newName;
     }
 
-    public File getFile(String name) {
-        for (File f : arquivos) {
-            if (f.getName().equalsIgnoreCase(name)) {
-                return f;
+    public List<File> getFiles() {
+        return files;
+    }
+
+    public List<Directory> getSubDirectories() {
+        return subDirectories;
+    }
+
+    public void addFile(File file) {
+        files.add(file);
+    }
+
+    public void removeFile(String fileName) {
+        files.removeIf(file -> file.getName().equals(fileName));
+    }
+
+    public void addDirectory(Directory dir) {
+        subDirectories.add(dir);
+    }
+
+    public void removeDirectory(String dirName) {
+        subDirectories.removeIf(dir -> dir.getName().equals(dirName));
+    }
+
+    public Directory getSubDirectory(String dirName) {
+        for (Directory dir : subDirectories) {
+            if (dir.getName().equals(dirName)) {
+                return dir;
             }
         }
         return null;
     }
 
-    public void addFile(String name, String content) {
-        if (getFile(name) != null) {
-            System.out.println("Arquivo '" + name + "' já existe neste diretório.");
-        } else {
-            arquivos.add(new File(name, content));
-            Journal.log("Criar Arquivo ->", name);
-            System.out.println("Arquivo '" + name + "' criado.");
-        }
-    }
-
-    public void addPasta(String name) {
-        if (hasSubdirectory(name)) {
-            System.out.println(" A pasta '" + name + "' já existe neste diretório.");
-        } else {
-            Directory newDir = new Directory(name);
-            subPastas.add(newDir);
-            Journal.log("Criar Pasta ->", name);
-            System.out.println(" Pasta '" + name + "' criada.");
-        }
-    }
-
-    public boolean hasSubdirectory(String name) {
-        for (Directory sub : subPastas) {
-            if (sub.getName().equalsIgnoreCase(name)) {
-                return true;
+    public File getFile(String fileName) {
+        for (File file : files) {
+            if (file.getName().equals(fileName)) {
+                return file;
             }
         }
-        return false;
-    }
-
-    public void removeFile(String name) {
-        arquivos.removeIf(f -> f.getName().equalsIgnoreCase(name));
-        Journal.log("Deletar Arquivo", name);
-    }
-
-    public void removePasta(String name) {
-        subPastas.removeIf(p -> p.getName().equalsIgnoreCase(name));
-        Journal.log("Deletar Pasta", name);
-    }
-
-    public void renameFile(String oldName, String newName) {
-        File file = getFile(oldName);
-        if (file != null) {
-            file.setName(newName);
-            Journal.log("Renomear Arquivo", oldName + " -> " + newName);
-        }
-    }
-
-    public void renamePasta(String oldName, String newName) {
-        for (Directory d : subPastas) {
-            if (d.getName().equalsIgnoreCase(oldName)) {
-                d.name = newName;
-                Journal.log("Renomear Pasta", oldName + " -> " + newName);
-                break;
-            }
-        }
-    }
-
-    public void copyFile(String name, String newName) {
-        File file = getFile(name);
-        if (file != null) {
-            addFile(newName, file.getContent());
-            Journal.log("Copiar Arquivo", name + " -> " + newName);
-        }
-    }
-
-    public void list() {
-        System.out.println("Pastas:");
-        for (Directory d : subPastas) {
-            System.out.println("- " + d.getName());
-        }
-        System.out.println("Arquivos:");
-        for (File f : arquivos) {
-            System.out.println("- " + f.getName());
-        }
+        return null;
     }
 }

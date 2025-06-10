@@ -1,6 +1,10 @@
 package Sistema;
 
-public class File {
+import java.io.Serializable;
+
+public class File implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     private String name;
     private String content;
 
@@ -9,27 +13,19 @@ public class File {
         this.content = content;
     }
 
-    // Getters
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getContent() {
         return content;
     }
 
-    // Setters
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public void setContent(String content) {
         this.content = content;
-    }
-
-    // Método para representar o arquivo como string (opcional, mas útil)
-    @Override
-    public String toString() {
-        return "Arquivo: " + name + " | Conteúdo: " + content;
     }
 }

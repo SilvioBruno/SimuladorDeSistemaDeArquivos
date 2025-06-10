@@ -52,6 +52,7 @@ public class Shell {
             }
         }
 
+        fs.save();
         sc.close();
     }
 }

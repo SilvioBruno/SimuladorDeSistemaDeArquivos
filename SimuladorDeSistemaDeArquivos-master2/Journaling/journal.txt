@@ -1,2 +1,6 @@
-[2025-06-05 19:43:23] [Criar Pasta ->] pasta1
-[2025-06-05 19:43:46] [Criar Arquivo ->] silvio
+[2025-06-10 19:28:17] [Criar Diretório] //pasta1
+[2025-06-10 19:28:53] [Criar Arquivo] /pasta1/silvio
+[2025-06-10 19:29:19] [Criar Diretório] //pasta2
+[2025-06-10 19:30:42] [Criar Diretório] /pasta1/pedro
+[2025-06-10 19:32:48] [Criar Diretório] /pasta1/pasta3
+[2025-06-10 19:34:52] [Criar Arquivo] /pasta1/pasta3/selvio
